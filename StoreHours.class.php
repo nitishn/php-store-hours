@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // ----------------------------------
 // PHP STORE HOURS
@@ -12,6 +12,9 @@
 class StoreHours {
 
   function __construct($hours = array(), $exceptions = array(), $template = array()) {
+    if( function_exists('get_option') ) {
+      date_default_timezone_set(get_option('timezone_string'));
+    }
     $this->hours = $hours;
     $this->exceptions = $exceptions;
     $this->template = $template;
